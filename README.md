@@ -1,1 +1,1 @@
-# mp-sggw.github.io
+Strona Maksymiliana Pietrasika :)
