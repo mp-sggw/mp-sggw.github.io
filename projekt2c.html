@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "pl">
+<head>
+	<meta charset="UTF-8">
+	<title>Formularz</title>
+</head>
+<body>
+<table width = "100%" height = "100%">
+	<tr>
+		<td align = "center" valign = "middle">
+			<h1>Formularz</h1>
+			<form>
+				<label>Imię: <input type = "text" name = "imie"></label><br><br>
+				<label>Nazwisko: <input type = "text" name = "nazwisko"></label><br><br>
+				<label>Płeć: 
+					<input type = "radio" name = "plec" value = "kobieta"> Kobieta
+					<input type = "radio" name = "plec" value = "mezczyzna"> Mężczyzna
+					<input type = "radio" name = "plec" value = "inne"> Inna
+				</label><br><br>
+				<label>Data Urodzenia: <input type = "date" name = "data_urodzenia"></label><br><br>
+				<label>Województwo: 
+					<select name = "wojewodztwo">
+						<option value = "">--Wybierz--</option>
+						<option value = "zachodniopomorskie">Zachodniopomorskie</option>
+						<option value = "pomorskie">Pomorskie</option>
+						<option value = "warmińsko-mazurskie">Warmińsko-mazurskie</option>
+						<option value = "podlaskie">Podlaskie</option>
+						<option value = "lubuskie">Lubuskie</option>
+ 						<option value = "wielkopolskie">Wielkopolskie</option>
+ 						<option value = "kujawsko-pomorskie">Kujawsko-pomorskie</option>
+ 						<option value = "mazowieckie">Mazowieckie</option>
+						<option value = "lubelskie">Lubelskie</option>
+ 						<option value = "dolnośląskie">Dolnośląskie</option>
+ 						<option value = "opolskie">Opolskie</option>
+ 						<option value = "śląskie">Śląskie</option>
+						<option value = "małopolskie">Małopolskie</option>
+ 						<option value = "świętokrzyskie">Świętokrzyskie</option>
+ 						<option value = "podkarpackie">Podkarpackie</option>
+ 						<option value = "łódzkie">Łódzkie</option>
+					</select>		
+				</label><br><br>
+				<label>Miasto: <input type = "text" name = "miasto"></label><br><br>
+				<label>Ulica: <input type = "text" name = "ulica"></label><br><br>
+				<label>Telefon: <input type = "tel" name = "telefon"></label><br><br>
+				<label>Email: <input type = "email" name = "email"></label><br><br>
+				<label>Hasło: <input type = "password" name = "haslo"></label><br><br>
+				<label>Prawo Jazdy: <input type = "radio" name = "prawo_jazdy" value = "tak"> Tak
+					<input type = "radio" name = "prawo_jazdy" value = "nie"> Nie
+				</label><br><br>
+				<label>Uwagi: <textarea name = "uwagi" rows = "3" cols = "30" maxlenght = "150"></textarea></label><br><br>	
+			</form>
+		</td>
+	</tr>
+</table>
+	
+</table>
+</body>
+</html>
