@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang= "pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Obrazów - CSS</title>
+    <style>
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+        div.gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 100px;
+            gap: 15px;
+            justify-items: center;
+            margin-top: 20px;
+        }
+        div.gallery img {
+            width: 300px;
+            height: 450px;
+        }
+        div.gallery img:hover {
+            transform: scale(1.05);
+        }
+        div.gallery-item div.desc {
+            text-align: center;
+            padding: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galeria Obrazów - CSS</h1>
+    <div class ="gallery">
+        <div class="gallery-item">
+            <img src="pexels-chinar-minar-1265133847-28440601.jpg" alt="Obraz 1">
+            <div class="desc">Obraz 1</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pexels-danmds-12827665.jpg" alt="Obraz 2">
+            <div class="desc">Obraz 2</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pexels-furkan-4263978.jpg" alt="Obraz 3">
+            <div class="desc">Obraz 3</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pexels-iriser-1083807.jpg" alt="Obraz 4">
+            <div class="desc">Obraz 4</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pexels-lmcasz-12151360.jpg" alt="Obraz 5">
+            <div class="desc">Obraz 5</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pexels-louis_ftn_-627779579-31132997.jpg" alt="Obraz 6">
+            <div class="desc">Obraz 6</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pexels-mahdibafande-16318406.jpg" alt="Obraz 7">
+            <div class="desc">Obraz 7</div>
+        </div>
+        <div class="gallery-item">
+            <img src="pexels-timdurgan-15455559.jpg" alt="Obraz 8">
+            <div class="desc">Obraz 8</div>
+        </div>
+    </div>
+</body>
+</html>
+    
