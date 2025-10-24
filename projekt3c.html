@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz - CSS</title>
+    <style>
+        body{
+            background-color: #f2f2f2;
+        }
+        h1{
+            text-align: center;
+            color: #000000;
+        }
+        form{
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input[type = text] {
+            text-align: left;
+            width: 300px;
+            height: 10px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type = radio] {
+            text-align: center;
+            vertical-align: upper;
+            width: 10px;
+            height: 10px;
+        }
+        input[type = text], select {
+            text-align: center;
+            vertical-align: middle;
+            width: 300px;
+            height: 10px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type = date] {
+            text-align: center;
+            width: 150px;
+            height: 10px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type = tel] {
+            text-align: left;
+            width: 300px;
+            height: 10px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type = email] {
+            text-align: left;
+            width: 300px;
+            height: 10px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type = password] {
+            text-align: left;
+            width: 300px;
+            height: 10px;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        input[type = textarea] {
+            text-align: center;
+            vertical-align: middle;
+            width: 500px;
+            height: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            background-color: #f8f8f8;
+            font-size: 16px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formularz</h1>
+			<form>
+				<label>Imię: <input type = "text" name = "imie"></label><br>
+				<label>Nazwisko: <input type = "text" name = "nazwisko"></label><br><br>
+				<label>Płeć: 
+					<input type = "radio" name = "plec" value = "kobieta"> Kobieta
+					<input type = "radio" name = "plec" value = "mezczyzna"> Mężczyzna
+					<input type = "radio" name = "plec" value = "inne"> Inna
+				</label><br><br>
+				<label>Data Urodzenia: <input type = "date" name = "data_urodzenia"></label><br><br>
+				<label>Województwo: 
+					<select name = "wojewodztwo">
+						<option value = "">--Wybierz--</option>
+						<option value = "zachodniopomorskie">Zachodniopomorskie</option>
+						<option value = "pomorskie">Pomorskie</option>
+						<option value = "warmińsko-mazurskie">Warmińsko-mazurskie</option>
+						<option value = "podlaskie">Podlaskie</option>
+						<option value = "lubuskie">Lubuskie</option>
+ 						<option value = "wielkopolskie">Wielkopolskie</option>
+ 						<option value = "kujawsko-pomorskie">Kujawsko-pomorskie</option>
+ 						<option value = "mazowieckie">Mazowieckie</option>
+						<option value = "lubelskie">Lubelskie</option>
+ 						<option value = "dolnośląskie">Dolnośląskie</option>
+ 						<option value = "opolskie">Opolskie</option>
+ 						<option value = "śląskie">Śląskie</option>
+						<option value = "małopolskie">Małopolskie</option>
+ 						<option value = "świętokrzyskie">Świętokrzyskie</option>
+ 						<option value = "podkarpackie">Podkarpackie</option>
+ 						<option value = "łódzkie">Łódzkie</option>
+					</select>		
+				</label><br><br>
+				<label>Miasto: <input type = "text" name = "miasto"></label><br><br>
+				<label>Ulica: <input type = "text" name = "ulica"></label><br><br>
+				<label>Telefon: <input type = "tel" name = "telefon"></label><br><br>
+				<label>Email: <input type = "email" name = "email"></label><br><br>
+				<label>Hasło: <input type = "password" name = "haslo"></label><br><br>
+				<label>Prawo Jazdy: <input type = "radio" name = "prawo_jazdy" value = "tak"> Tak
+					<input type = "radio" name = "prawo_jazdy" value = "nie"> Nie
+				</label><br><br>
+				<label>Uwagi: <textarea name = "uwagi"></textarea></label><br><br>	
+			</form>
+</body>
+</html>
+        
