@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator w JavaScript</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+            color: #000000;
+        }
+        form {
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input[type="text"] {
+            text-align: right;
+            width: 200px;
+            height: 30px;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        button {
+            width: 45px;
+            height: 45px;
+            margin: 5px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kalkulator</h1>
+    <form name="kalkulator">
+        <input type="text" name="display" id="display" disabled>
+        <br>
+        <button type="button" onclick="wyswietl('7')">7</button>
+        <button type="button" onclick="wyswietl('8')">8</button>
+        <button type="button" onclick="wyswietl('9')">9</button>
+        <button type="button" onclick="wyswietl('/')">/</button>
+        <br>
+        <button type="button" onclick="wyswietl('4')">4</button>
+        <button type="button" onclick="wyswietl('5')">5</button>
+        <button type="button" onclick="wyswietl('6')">6</button>
+        <button type="button" onclick="wyswietl('*')">*</button>
+        <br>
+        <button type="button" onclick="wyswietl('1')">1</button>
+        <button type="button" onclick="wyswietl('2')">2</button>
+        <button type="button" onclick="wyswietl('3')">3</button>
+        <button type="button" onclick="wyswietl('-')">-</button>
+        <br>
+        <button type="button" onclick="wyswietl('0')">0</button>
+        <button type="button" onclick="wyswietl('.')">.</button>
+        <button type="button" onclick="oblicz()">=</button>
+        <button type="button" onclick="wyswietl('+')">+</button>
+        <br>
+        <button type="button" onclick="wyczysc()">C</button>
+    </form>
+
+    <script>
+        function wyswietl(value) {
+            document.kalkulator.display.value += value;
+        }
+
+        function oblicz() {
+            try {
+                document.kalkulator.display.value = eval(document.kalkulator.display.value);
+            } catch (e) {
+                document.kalkulator.display.value = 'Error';
+            }
+        }
+
+        function wyczysc() {
+            document.kalkulator.display.value = '';
+        }
+    </script>
+</html>
