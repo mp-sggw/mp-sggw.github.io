@@ -4,11 +4,11 @@
 <head>
 	<meta charset="utf-8"/>	
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">	
-    <title>Faktura Creator - Formularz</title>		
+    <title>Generator Faktur w XML</title>		
     
     <link rel="stylesheet" href="styles.css">	
-    <script src="script.js" defer></script>		
-    
+    <script src="script.js" defer></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">	
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>	
     <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Outfit:wght@300&display=swap" rel="stylesheet">
@@ -16,32 +16,32 @@
 
 
 <body class = "bg">
-	<section class = "gapfeel"> </section>		
+	<section class = "structure"> </section>		
     <main class = "content">			
         <section id = "namebox">			
-            <h1> Faktura Creator</h1>			
-            <p>Wypełnij dane do faktury</p>		
+            <h1>Generator Faktur</h1>			
+            <p>Wypełnij formularz, aby wygenerować fakturę</p>		
         </section>				
         
         <section class = "form">					
             <form>						
-                <section class = "first-form">
+                <section class = "sub_form">
                     
                     <div class = "field"> 
                         <label for = "seller_name"> Nazwa sprzedawcy </label>
-                        <input class = "basic-input" id = "seller_name" name = "seller_name" type = "text" placeholder = "Firma Sprzedawcy Sp. Z.O.O" required />						
+                        <input class = "b_input" id = "seller_name" name = "seller_name" type = "text" placeholder = "Firma Sprzedawcy" required />						
                     </div>
                     <div class = "field"> 
                         <label for = "seller_nip"> NIP sprzedawcy </label>
-                        <input class = "basic-input" id = "seller_nip" name = "seller_nip" type = "text" placeholder="1234567890" pattern="[0-9]{10}" required />						
+                        <input class = "b_input" id = "seller_nip" name = "seller_nip" type = "text" placeholder="1234567890" pattern="[0-9]{10}" required />						
                     </div>
                     <div class = "field"> 
                         <label for = "seller_address"> Adres sprzedawcy </label>
-                        <input class = "basic-input" id = "seller_address" name = "seller_address" type = "text" placeholder="Warszawska 1, Warszawa" required />						
+                        <input class = "b_input" id = "seller_address" name = "seller_address" type = "text" placeholder="Ulica 1, Miejscowość 1" required />						
                     </div>
                     <div class = "field"> 
-                        <label for = "seller_zipcode"> Kod pocztowy sprzedawcy </label>
-                        <input class = "basic-input" id = "seller_zipcode" name = "seller_zipcode" type = "text"  pattern="^[0-9]{2}-[0-9]{3}$" placeholder="12-345" required />						
+                        <label for = "seller_zip"> Kod pocztowy sprzedawcy </label>
+                        <input class = "b_input" id = "seller_zip" name = "seller_zip" type = "text"  pattern="^[0-9]{2}-[0-9]{3}$" placeholder="12-345" required />						
                     </div>
                     
                     <div style="width:100%; height:5vh;"></div>
@@ -49,19 +49,19 @@
                     
                     <div class = "field"> 
                         <label for = "client_name"> Nazwa nabywcy </label>
-                        <input class = "basic-input" id = "client_name" name = "client_name" type = "text" placeholder = "Firma Nabywcy S.A." required />						
+                        <input class = "b_input" id = "client_name" name = "client_name" type = "text" placeholder = "Firma Nabywcy" required />						
                     </div>
                     <div class = "field"> 
                         <label for = "client_nip"> NIP nabywcy </label>
-                        <input class = "basic-input" id = "client_nip" name = "client_nip" type="text" placeholder="0987654321" pattern="[0-9]{10}" required />						
+                        <input class = "b_input" id = "client_nip" name = "client_nip" type="text" placeholder="0987654321" pattern="[0-9]{10}" required />						
                     </div>
                     <div class = "field"> 
                         <label for = "client_address"> Adres nabywcy </label>
-                        <input class = "basic-input" id = "client_address" name = "client_address" type="text" placeholder="ul. Łódzka 2, Łódź" required />						
+                        <input class = "b_input" id = "client_address" name = "client_address" type="text" placeholder="Ulica 2, Miejscowość 2" required />				
                     </div>
                     <div class = "field"> 
-                        <label for = "client_zipcode"> Kod pocztowy nabywcy </label>
-                        <input class = "basic-input" id = "client_zipcode" name = "client_zipcode" type="text"  pattern="^[0-9]{2}-[0-9]{3}$" placeholder="54-321" required />						
+                        <label for = "client_zip"> Kod pocztowy nabywcy </label>
+                        <input class = "b_input" id = "client_zip" name = "client_zip" type="text"  pattern="^[0-9]{2}-[0-9]{3}$" placeholder="54-321" required />						
                     </div> 
                     
                     <div style="width:100%; height:5vh;"></div>
@@ -75,26 +75,26 @@
                 </section>			
                 
                 <template id="rowTemplate">  
-                    <div class="item-row">    
+                    <div class="item_row">    
                         <div class="field">      
                             <label>Nazwa</label>      
-                            <input class="basic-input" name="name[]" type="text" placeholder="Żwir mieszanka z piaskiem" required>    
+                            <input class="b_input" name="name[]" type="text" placeholder="Usługa / Towar" required>    
                         </div>
                         <div class="field">      
                             <label>Jednostka</label>      
-                            <input class="basic-input" name="unit[]" type="text" placeholder="kg" required>    
+                            <input class="b_input" name="unit[]" type="text" placeholder="kg" required>    
                         </div>
                         <div class="field">      
                             <label>Ilość</label>      
-                            <input class="basic-input" name="count[]" type="number" step="0.01" placeholder="1000" required>    
+                            <input class="b_input" name="count[]" type="number" step="0.01" placeholder="100" required>    
                         </div>
                         <div class="field">      
-                            <label>Cena jedn. NETTO (zł)</label>      
-                            <input class="basic-input" name="price[]" type="number" step="0.01" placeholder="3.95" required>    
+                            <label>Cena Netto (zł)</label>      
+                            <input class="b_input" name="price[]" type="number" step="0.01" placeholder="4.50" required>    
                         </div>
                         <div class="field">      
                             <label>VAT %</label>      
-                            <input class="basic-input" name="tax[]" type="number" min="0" max="99" step="1" placeholder="23" required>    
+                            <input class="b_input" name="tax[]" type="number" min="0" max="99" step="1" placeholder="23" required>    
                         </div>
                         <div style="width:100%; height:5vh;"></div>
                     </div>
@@ -104,19 +104,19 @@
                 <div style="width:100%; height:5vh;"></div>						
                 
                 <div class = "field"> 
-                    <label for = "nr_f"> Numer faktury </label>
-                    <input class = "basic-input" id = "nr_f" name = "nr_f" type = "text"  placeholder="FV/2025/11/09/001" required />						
+                    <label for = "nr_f"> Numer Faktury </label>
+                    <input class = "b_input" id = "nr_f" name = "nr_f" type = "text"  placeholder="FV/2025/11/16/001" required />						
                 </div> 
                 <div class = "field"> 
                     <label for = "date"> Data Wystawienia </label>
-                    <input class = "basic-input" id = "date" name = "date" type = "date" required />						
+                    <input class = "b_input" id = "date" name = "date" type = "date" required />						
                 </div> 
                 
                 <div style="width:100%; height:1vh;"></div>						
                 
                 <div class="actionButtons">						
-                    <button type="button" id="addButton">Dodaj pozycję</button>			
-                    <button type="button" id="removeButton">Usuń pozycję</button> 												
+                    <button type="button" id="addButton">Dodaj Pozycję</button>			
+                    <button type="button" id="removeButton">Usuń Pozycję</button> 												
                 </div>
                 
                 <div style="width:100%; height:2vh;"></div>						
@@ -129,7 +129,7 @@
             </form>					
         </section>					
     </main>			
-    <section class = "gapfeel"> </section>		
+    <section class = "structure"> </section>		
 
 </body>
 </html>
