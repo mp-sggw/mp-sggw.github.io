@@ -1,17 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Ustalenie, na ktĂłrej stronie jesteĹmy
-    const isPreviewPage = window.location.pathname.endsWith('preview.html');
 
-    if (!isPreviewPage) {
-        // --- LOGIKA FORMULARZA (INDEX.HTML) ---
+    const preview = window.location.pathname.endsWith('preview.html');
+
+    if (!preview) {
         const items = document.getElementById('items');
-        const tpl = document.getElementById('rowTemplate');
+        const temp = document.getElementById('rowTemplate');
         const addBtn = document.getElementById('addButton');
         const remBtn = document.getElementById('removeButton');
 
         function addRow() {
-            const row = tpl.content.firstElementChild.cloneNode(true);
+            const row = temp.content.firstElementChild.cloneNode(true);
             items.appendChild(row);
         }
 
@@ -24,10 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Podpinanie przyciskĂłw
         addBtn.addEventListener('click', addRow);
         remBtn.addEventListener('click', removeLastRow);
-        addRow(); // Dodaj pierwszÄ pozycjÄ na starcie
+        addRow();
 
         const form = document.querySelector("form");
 
@@ -38,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const formData = new FormData(form);
 
-            // Zbieranie danych
             const seller = {
                 nazwa: formData.get("seller_name"),
                 nip: formData.get("seller_nip"),
@@ -53,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 kod: formData.get("client_zip")
             };
 
-            const uniqueData = {
+            const invoice = {
                 numer: formData.get("nr_f"),
                 data: formData.get("date")
             };
@@ -64,10 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const prices = formData.getAll("price[]");
             const taxes = formData.getAll("tax[]");
 
-            let sumNetto = 0, sumPodatek = 0, sumBrutto = 0;
+            let sumNetto = 0, sumVAT = 0, sumBrutto = 0;
             const pozycjeXML = [];
 
-            // Obliczenia i generowanie XML dla pozycji
             for (let i = 0; i < names.length; i++) {
                 const nazwa = names[i];
                 const jednostka = units[i];
@@ -80,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const brutto = netto + vat;
 
                 sumNetto += netto;
-                sumPodatek += vat;
+                sumVAT += vat;
                 sumBrutto += brutto;
 
                 pozycjeXML.push(
@@ -97,11 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
             }
 
-            // Generowanie caĹego ciÄgu XML
             const xml = `<?xml version="1.0" encoding="UTF-8"?>
             <faktura>
-                <numer> ${uniqueData.numer} </numer>
-                <dataWystawienia> ${uniqueData.data} </dataWystawienia>
+                <numer> ${invoice.numer} </numer>
+                <dataWystawienia> ${invoice.data} </dataWystawienia>
                 
                 <sprzedawca> 
                     <nazwa> ${seller.nazwa} </nazwa>
@@ -121,55 +115,54 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 <suma> 
                     <netto> ${sumNetto.toFixed(2)} </netto>
-                    <vat> ${sumPodatek.toFixed(2)} </vat>
+                    <vat> ${sumVAT.toFixed(2)} </vat>
                     <brutto> ${sumBrutto.toFixed(2)} </brutto>
                 </suma>
             </faktura>`;
 
-            // Zapis XML i przekierowanie
             sessionStorage.setItem("fakturaXML", xml);
             window.open("preview.html", "_blank");
         });
 
     } else {
-        // --- LOGIKA TRANSFORMACJI (PREVIEW.HTML) ---
         const xmlString = sessionStorage.getItem("fakturaXML");
         const targetId = "faktura_kontener";
         
         if (!xmlString) {
-            document.getElementById(targetId).innerHTML = "Brak danych faktury do wyĹwietlenia. WrĂłÄ do formularza i wypeĹnij dane.";
+            document.getElementById(targetId).innerHTML = "Brak danych faktury do wyswietlenia. Wroc do formularza i wypelnij dane.";
             return;
         }
 
-        const xslUrl = "faktura.xsl"; 
+        const xsl = "faktura.xsl";
         
+        (async () => {
         try {
-            // 1. Parsowanie XML
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlString, "application/xml");
 
-            // 2. Wczytanie pliku XSLT
-            const xslRequest = new XMLHttpRequest();
-            xslRequest.open("GET", xslUrl, false); 
-            xslRequest.send(null);
-            const xslDoc = xslRequest.responseXML;
-            
-            if (xslRequest.status !== 200) {
-                 document.getElementById(targetId).innerHTML = "BĹÄd: Nie moĹźna zaĹadowaÄ pliku faktura.xsl. Wymagany lokalny serwer WWW.";
-                 return;
+            const response = await fetch(xsl);
+            if (!response.ok) {
+                document.getElementById(targetId).innerHTML =
+                    "Blad: Nie mozna zaladowac pliku faktura.xsl.";
+                return;
             }
 
-            // 3. Transformacja i wyĹwietlenie
+            const xslText = await response.text();
+            const xslDoc = parser.parseFromString(xslText, "application/xml");
+
             const xsltProcessor = new XSLTProcessor();
             xsltProcessor.importStylesheet(xslDoc);
-            
+
             const resultDocument = xsltProcessor.transformToFragment(xmlDoc, document);
-            
-            document.getElementById(targetId).innerHTML = '';
-            document.getElementById(targetId).appendChild(resultDocument);
-            
+
+            const container = document.getElementById(targetId);
+            container.innerHTML = "";
+            container.appendChild(resultDocument);
+
         } catch (error) {
-            document.getElementById(targetId).innerHTML = `WystÄpiĹ nieoczekiwany bĹÄd transformacji: ${error.message}`;
+            document.getElementById(targetId).innerHTML =
+                `Wystapil nieoczekiwany blad transformacji: ${error.message}`;
         }
+    })();
     }
 });
