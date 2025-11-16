@@ -127,11 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
         const xmlString = sessionStorage.getItem("fakturaXML");
         const targetId = "faktura_kontener";
-        
-        if (!xmlString) {
-            document.getElementById(targetId).innerHTML = "Brak danych faktury do wyswietlenia. Wroc do formularza i wypelnij dane.";
-            return;
-        }
 
         const xsl = "faktura.xsl";
         
@@ -161,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             document.getElementById(targetId).innerHTML =
-                `Wystapil nieoczekiwany blad transformacji: ${error.message}`;
+                `Blad Konwersji: ${error.message}`;
         }
     })();
     }
