@@ -171,13 +171,10 @@
             <div class="final-total">
                 Kwota do zapłaty (Brutto): <strong><xsl:value-of select="suma/brutto"/> PLN</strong>
             </div>
-
-            <div style="margin-top: 30px; text-align: center;">
-                <p>Dokument wygenerowany przez strona Kacpra Olszewskiego.</p>
-            </div>
         </div>
     </body>
     </html>
 </xsl:template>
 
 </xsl:stylesheet>
+
