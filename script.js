@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function removeLastRow() {
-            const rows = items.querySelectorAll('.item-row');
+            const rows = items.querySelectorAll('.item_row');
             if (rows.length > 1) {
                 rows[rows.length - 1].remove();
             } else {
@@ -43,14 +43,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 nazwa: formData.get("seller_name"),
                 nip: formData.get("seller_nip"),
                 adres: formData.get("seller_address"),
-                kod: formData.get("seller_zipcode")
+                kod: formData.get("seller_zip")
             };
 
             const client = {
                 nazwa: formData.get("client_name"),
                 nip: formData.get("client_nip"),
                 adres: formData.get("client_address"),
-                kod: formData.get("client_zipcode")
+                kod: formData.get("client_zip")
             };
 
             const uniqueData = {
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sumBrutto += brutto;
 
                 pozycjeXML.push(
-                    ` <pozycja>
+                    `<pozycja>
                     <nazwa> ${nazwa} </nazwa>
                     <jednostka> ${jednostka} </jednostka>
                     <ilosc> ${ilosc.toFixed(2)} </ilosc>
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <netto> ${netto.toFixed(2)} </netto>
                     <kwotaVat> ${vat.toFixed(2)} </kwotaVat>
                     <brutto> ${brutto.toFixed(2)} </brutto>		
-                </pozycja>`
+                    </pozycja>`
                 );
             }
 
