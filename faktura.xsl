@@ -172,7 +172,7 @@
                 Kwota do zapłaty (Brutto): <strong><xsl:value-of select="suma/brutto"/> PLN</strong>
             </div>
             <div style="margin-top: 30px; text-align: center;">
-                <p>Wygenerowane przy pomocy Generatora Faktur</p>
+                <p>-----------------------------------------------------</p>
             </div>
         </div>
     </body>
@@ -180,6 +180,7 @@
 </xsl:template>
 
 </xsl:stylesheet>
+
 
 
 
