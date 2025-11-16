@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // Ustalenie, na ktĂłrej stronie jesteĹmy
+    // Ustalenie, na ktorej stronie jestesmy
     const isPreviewPage = window.location.pathname.endsWith('preview.html');
 
     if (!isPreviewPage) {
@@ -24,10 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Podpinanie przyciskĂłw
+        // Podpinanie przyciskow
         addBtn.addEventListener('click', addRow);
         remBtn.addEventListener('click', removeLastRow);
-        addRow(); // Dodaj pierwszÄ pozycjÄ na starcie
+        addRow(); // Dodaj pierwsza pozycja na starcie
 
         const form = document.querySelector("form");
 
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 );
             }
 
-            // Generowanie caĹego ciÄgu XML
+            // Generowanie calego ciagu XML
             const xml = `<?xml version="1.0" encoding="UTF-8"?>
             <faktura>
                 <numer> ${uniqueData.numer} </numer>
@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const targetId = "faktura_kontener";
         
         if (!xmlString) {
-            document.getElementById(targetId).innerHTML = "Brak danych faktury do wyĹwietlenia. WrĂłÄ do formularza i wypeĹnij dane.";
+            document.getElementById(targetId).innerHTML = "Brak danych faktury do wyswietlenia. Wroc do formularza i wypelnij dane.";
             return;
         }
 
@@ -155,11 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const xslDoc = xslRequest.responseXML;
             
             if (xslRequest.status !== 200) {
-                 document.getElementById(targetId).innerHTML = "BĹÄd: Nie moĹźna zaĹadowaÄ pliku faktura.xsl. Wymagany lokalny serwer WWW.";
+                 document.getElementById(targetId).innerHTML = "Blad: Nie mozna zaladowac pliku faktura.xsl. Wymagany lokalny serwer WWW.";
                  return;
             }
 
-            // 3. Transformacja i wyĹwietlenie
+            // 3. Transformacja i wyswietlenie
             const xsltProcessor = new XSLTProcessor();
             xsltProcessor.importStylesheet(xslDoc);
             
@@ -169,7 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById(targetId).appendChild(resultDocument);
             
         } catch (error) {
-            document.getElementById(targetId).innerHTML = `WystÄpiĹ nieoczekiwany bĹÄd transformacji: ${error.message}`;
+            document.getElementById(targetId).innerHTML = `Wystapil nieoczekiwany blad transformacji: ${error.message}`;
         }
     }
+
 });
