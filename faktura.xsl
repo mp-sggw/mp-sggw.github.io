@@ -92,7 +92,7 @@
                 margin-top: 15px;
                 padding: 12px;
                 border-top: 3px solid #1e65b8;
-                color: #b80000; /* czerwone dla ważnego komunikatu */
+                color: #b80000;
             }
             .invoice-wrapper > div:last-child p {
                 font-size: 12px;
@@ -171,10 +171,14 @@
             <div class="final-total">
                 Kwota do zapłaty (Brutto): <strong><xsl:value-of select="suma/brutto"/> PLN</strong>
             </div>
+            <div style="margin-top: 30px; text-align: center;">
+                <p>Wygenerowane przy pomocy Generatora Faktur</p>
+            </div>
         </div>
     </body>
     </html>
 </xsl:template>
 
 </xsl:stylesheet>
+
 
