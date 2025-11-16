@@ -7,130 +7,96 @@
     <head>
         <title>Faktura VAT - Numer: <xsl:value-of select="numer"/></title>
         <style>
-            /* --- CSS dla całej faktury (Wbudowane style) --- */
-            body { 
-                font-family: 'Outfit', Arial, sans-serif; 
-                line-height: 1.6; 
-                padding: 20px; 
-                background-color: #f4f4f4; 
-                color: #333; 
-                font-size: 14px;
+            body {
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 40px;
+                background: #f7f7f7;
+                color: #000;
             }
-
             .invoice-wrapper {
-                border: 1px solid #ccc;
-                padding: 40px;
-                margin: 20px auto;
+                background: white;
+                padding: 35px 45px;
                 max-width: 900px;
-                background-color: white;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-                border-radius: 8px;
+                margin: auto;
+                border: 1px solid #d0d0d0;
+                box-shadow: 0 0 10px rgba(0,0,0,0.15);
             }
-
-            h1 {
-                text-align: center;
-                color: #1a56a0;
-                border-bottom: 3px solid #1a56a0;
+            .header-info {
+                border-bottom: 3px solid #1e65b8;
                 padding-bottom: 15px;
-                margin-bottom: 30px;
+                margin-bottom: 25px;
+            }
+            .header-info h1 {
                 font-size: 28px;
                 font-weight: 700;
+                margin-bottom: 8px;
             }
-
-            .header-info {
-                text-align: right;
-                margin-bottom: 30px;
-                font-size: 15px;
+            .header-info p {
+                font-size: 14px;
+                margin: 3px 0;
             }
-
-            .header-info strong {
-                color: #1a56a0;
-            }
-
             .parties-container {
-                margin-bottom: 30px;
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 35px;
+                gap: 40px;
             }
-
-            .parties-container::after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
             .party {
-                width: 48%;
-                float: left;
-                padding: 15px;
-                border: 1px solid #e0e0e0;
+                width: 50%;
+                border: 1px solid #c3d6f2;
+                padding: 15px 18px;
                 border-radius: 6px;
+                background: #f0f6ff;
             }
-
-            .party.seller {
-                margin-right: 4%;
-            }
-
             .party h3 {
-                margin-top: 0;
-                color: #555;
-                border-bottom: 1px solid #e0e0e0;
-                padding-bottom: 5px;
-                font-size: 18px;
+                margin-bottom: 6px;
+                font-size: 16px;
+                color: #1e65b8;
+                border-bottom: 1px solid #b5cff3;
+                padding-bottom: 4px;
             }
-
+            .party p {
+                font-size: 13px;
+                margin: 4px 0;
+            }
             table {
                 width: 100%;
                 border-collapse: collapse;
-                margin-top: 25px;
-                font-size: 14px;
+                margin-bottom: 30px;
+                font-size: 13px;
             }
-
-            thead th {
-                background-color: #1a56a0;
+            th {
+                background: #1e65b8;
                 color: white;
-                padding: 12px 10px;
-                border: none;
-                text-transform: uppercase;
-                font-weight: 400;
+                padding: 8px 5px;
+                border: 1px solid #0f4178;
+                text-align: center;
+                font-weight: 600;
             }
-
-            tbody td {
-                border: 1px solid #e0e0e0;
-                padding: 10px;
+            td {
+                padding: 6px 4px;
+                border: 1px solid #bfc8d1;
+                text-align: center;
             }
-
             tbody tr:nth-child(even) {
-                background-color: #f9f9f9;
+                background: #f5f7fa;
             }
-
-            tfoot td {
-                border: none;
-                padding: 8px 10px;
-            }
-
-            .total-row {
-                background-color: #e8f0f8;
+            .total-row td {
+                background: #e6eefb;
                 font-weight: bold;
             }
-
             .final-total {
-                text-align: right;
-                margin-top: 20px;
-                padding: 15px;
-                border-top: 2px solid #1a56a0;
-                font-size: 1.6em;
-                color: #000;
-            }
-
-            .final-total strong {
-                color: #c0392b;
+                font-size: 18px;
                 font-weight: 700;
+                text-align: right;
+                margin-top: 15px;
+                padding: 12px;
+                border-top: 3px solid #1e65b8;
+                color: #b80000; /* czerwone dla ważnego komunikatu */
             }
-
             .invoice-wrapper > div:last-child p {
-                margin-top: 30px;
-                text-align: center;
-                font-style: italic;
-                color: #888;
+                font-size: 12px;
+                color: #555;
             }
         </style>
     </head>
@@ -213,4 +179,5 @@
     </body>
     </html>
 </xsl:template>
+
 </xsl:stylesheet>
