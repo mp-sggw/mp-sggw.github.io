@@ -22,7 +22,7 @@
                 box-shadow: 0 0 10px rgba(0,0,0,0.15);
             }
             .header-info {
-                border-bottom: 3px solid #1e65b8;
+                border-bottom: 3px solid #b81e1e;
                 padding-bottom: 15px;
                 margin-bottom: 25px;
             }
@@ -43,16 +43,16 @@
             }
             .party {
                 width: 50%;
-                border: 1px solid #c3d6f2;
+                border: 1px solid #f2c3c3;
                 padding: 15px 18px;
                 border-radius: 6px;
-                background: #f0f6ff;
+                background: #fff0f0;
             }
             .party h3 {
                 margin-bottom: 6px;
                 font-size: 16px;
-                color: #1e65b8;
-                border-bottom: 1px solid #b5cff3;
+                color: #b81e1e;
+                border-bottom: 1px solid #f3b5b5;
                 padding-bottom: 4px;
             }
             .party p {
@@ -66,10 +66,10 @@
                 font-size: 13px;
             }
             th {
-                background: #1e65b8;
+                background: #b81e1e;
                 color: white;
                 padding: 8px 5px;
-                border: 1px solid #0f4178;
+                border: 1px solid #780f0f;
                 text-align: center;
                 font-weight: 600;
             }
@@ -82,7 +82,7 @@
                 background: #f5f7fa;
             }
             .total-row td {
-                background: #e6eefb;
+                background: #fbe6e6;
                 font-weight: bold;
             }
             .final-total {
@@ -91,7 +91,7 @@
                 text-align: right;
                 margin-top: 15px;
                 padding: 12px;
-                border-top: 3px solid #1e65b8;
+                border-top: 3px solid #b81e1e;
                 color: #b80000;
             }
             .invoice-wrapper > div:last-child p {
@@ -180,5 +180,6 @@
 </xsl:template>
 
 </xsl:stylesheet>
+
 
 
